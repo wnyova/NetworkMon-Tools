@@ -2,6 +2,7 @@
 .idea
 .directory
 .gradle
+.circleci
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
