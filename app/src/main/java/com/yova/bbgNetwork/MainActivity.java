@@ -1,6 +1,9 @@
 package com.yova.bbgNetwork;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private Button portScanButton;
     private Button subnetDevicesButton;
     Button click;
-    private ProgressBar loadingPB;
+    //private ProgressBar loadingPB;//
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +62,13 @@ public class MainActivity extends AppCompatActivity {
             click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resultText.setText("");
+                Intent mStartActivity = new Intent(MainActivity.this, SplashScreen.class);
+                int mPendingIntentId = 123456;
+                PendingIntent mPendingIntent = PendingIntent.getActivity(MainActivity.this, mPendingIntentId, mStartActivity,
+                        PendingIntent.FLAG_CANCEL_CURRENT);
+                AlarmManager mgr = (AlarmManager) MainActivity.this.getSystemService(Context.ALARM_SERVICE);
+                mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+                System.exit(0);
             }
         });
 
@@ -71,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.colorPrimaryDark));
         }
 
-        loadingPB = findViewById(R.id.idPBLoading);
+        //loadingPB = findViewById(R.id.idPBLoading);
         resultText = findViewById(R.id.resultText);
         editIpAddress = findViewById(R.id.editIpAddress);
         scrollView = findViewById(R.id.scrollView1);
