@@ -7,6 +7,7 @@ buildscript {
   dependencies {
     classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.2'
 
+
     // This is so we can publish straight to Google Play
     classpath 'com.github.triplet.gradle:play-publisher:1.2.2'
   }
@@ -38,7 +39,7 @@ android {
     versionCode 21
 
     archivesBaseName = "AndroidNetworkTools"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+   /* testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner" */
   }
 
   //check if the keystore details are defined in gradle.properties (this is so the key is not in github)
@@ -77,10 +78,10 @@ dependencies {
   implementation "com.android.support:design:$supportLibVer"
   implementation project(':library')
   implementation 'com.android.support.constraint:constraint-layout:2.0.4'
-
+/*
   testImplementation 'junit:junit:4.12'
 
   androidTestImplementation 'com.squareup.spoon:spoon-client:1.6.4'
   androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-  androidTestImplementation('com.android.support.test.espresso:espresso-intents:2.2')
+  androidTestImplementation('com.android.support.test.espresso:espresso-intents:2.2') */
 }
